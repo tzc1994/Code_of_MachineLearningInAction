@@ -44,3 +44,6 @@
         myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)
     return myTree
 ```
+### Tips:
+    决策树的学习算法包含特征选择，决策树的生成与决策树的剪枝过程.
+    

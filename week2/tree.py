@@ -13,6 +13,7 @@ def calShannonEnt(dataSet):
     for key in labelCount:
         prob = float(labelCount[key]) / numEntries
         shannonEnt -= prob * log(prob, 2)
+    return shannonEnt
 
 def splitDataSet(dataSet, axis, value):
     retDataSet = []
@@ -36,7 +37,7 @@ def chooseBestFeatureToSplit(dataSet):
             subDataSet = splitDataSet(dataSet, i, value)
             prob = len(subDataSet) / float(len(dataSet))
             newEntropy += prob*calShannonEnt(subDataSet)
-        infoGain = baseEntropy - newEntropy
+        infoGain = baseEntropy - newEntropy   #信息增益的计算
         if infoGain > bestInfoGain:
             bestInfoGain = infoGain
             bestFeature = i
